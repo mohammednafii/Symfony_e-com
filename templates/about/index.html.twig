@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}about{% endblock %}
+
+{% block body %}
+<body class="animsition">
+	
+	<!-- Header -->
+
+    {% include 'header/index.html.twig' %}
+
+
+
+	<!-- Title page -->
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/librarycover.webp');">
+		<h2 class="ltext-105 cl0 txt-center">
+			About
+		</h2>
+	</section>	
+
+
+	<!-- Content page -->
+	<section class="bg0 p-t-75 p-b-120">
+		<div class="container">
+			<div class="row p-b-148">
+				<div class="col-md-7 col-lg-8">
+					<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">
+							Our Story
+						</h3>
+
+						<p class="stext-113 cl6 p-b-26">
+							In the heart of the ancient city of Lumina stood a library like no other. The Enchanted Library, as it was known, was a place where books came to life, and stories leapt off the pages. Visitors from all over the world traveled to witness the magic that lay within its towering shelves. One sunny afternoon, a young girl named Elara entered the library for the first time. She had heard tales of its wonders from her grandmother, who once worked as a librarian there. Elara's heart raced with excitement as she stepped through the grand wooden doors, which creaked slightly as if whispering secrets of the past. The library was vast, with ceilings so high they seemed to touch the sky. Stained glass windows cast colorful patterns on the floor, and the air was filled with the scent of old books and polished wood. Elara wandered through the aisles, her fingers brushing against the spines of countless volumes, each promising a new adventure. As she reached the center of the library, she noticed a peculiar book resting on a pedestal. It was bound in deep blue leather with intricate gold designs, and its title read "The Chronicles of the Hidden Realm." Drawn to it, Elara opened the book, and to her amazement, the pages began to glow. Suddenly, she was no longer in the library but in a lush forest filled with mythical creatures and vibrant flora.
+
+Elara realized that she had been transported into the world of the book. 
+						</p>
+					</div>
+				</div>
+
+				<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+					<div class="how-bor1 ">
+						<div class="hov-img0">
+							<img src="images/about1.webp" alt="IMG">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="order-md-2 col-md-7 col-lg-8 p-b-30">
+					<div class="p-t-7 p-l-85 p-l-15-lg p-l-0-md">
+						<h3 class="mtext-111 cl2 p-b-16">
+							Our Mission
+						</h3>
+
+						<p class="stext-113 cl6 p-b-26">
+							At the Enchanted Library, our mission is to ignite imaginations and foster a lifelong love of reading. We provide a welcoming space where stories come to life, knowledge is shared, and our community thrives. Through diverse books, engaging programs, and innovative services, we aim to inspire curiosity, promote literacy, and embrace inclusion. Join us and discover the magic of reading.
+						</p>
+
+						<div class="bor16 p-l-29 p-b-9 m-t-22">
+							<p class="stext-114 cl6 p-r-40 p-b-11">
+								Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
+							</p>
+
+							<span class="stext-111 cl8">
+								- Steve Job’s 
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
+					<div class="how-bor2">
+						<div class="hov-img0">
+							<img src="images/about2.webp" alt="IMG">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>	
+	
+		
+
+	{% include 'footer/index.html.twig' %}
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	
+</body>
+{% endblock %}

@@ -1,0 +1,54 @@
+
+{# templates/product/detail.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# {% block title %}{{ product.name }}{% endblock %} #}
+{% block title %}product name{% endblock %}
+
+
+{% block body %}
+ {% include 'header/index.html.twig' %}
+    <div class="container mt-5">
+    <h1 class="text-center"> orders </h1>
+    <br>
+        <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">num order</th>
+      <th scope="col">CreatedAt</th>
+      <th scope="col">Price</th>
+      <th scope="col">Actions</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for cmd in commande %}
+    <tr>
+      <th scope="row">{{cmd.reference}}</th>
+      <td>{{ cmd.createdAt|date('Y-m-d') }} At {{ cmd.createdAt|date('H:i:s') }}</td>
+    
+       <td>{{cmd.total}} $</td>
+      <td>
+      {% if cmd.status == 1%}
+        <a href="{{path('order_details',{id: cmd.id})}}"class="btn btn-info px-10">Detail</a>
+      {% else %}
+      <a href="{{path('order_details',{id: cmd.id})}}"class="btn btn-info">Detail</a>
+      <a href="{{path('process_payment',{id:cmd.id})}}" class="btn btn-success ">Checkout</a>
+      {% endif %}
+      </td>
+      {% if cmd.status == 1%}
+        <td>payée</td>
+      {% else %}
+      <td> non payée </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

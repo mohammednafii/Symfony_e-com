@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrderController!{% endblock %}
+
+{% block body %}
+	<!-- Header -->
+    {% include 'header/index.html.twig' %}
+    <!-- Body -->
+    <div class="container mt-5">
+ <div class="row align-items-center">
+            <div class="col">
+                <h1 class="text-left">Add order</h1>
+            </div>
+            <div class="col text-right">
+                <a href="{{path("order")}}" class="btn btn-primary">View orders</a>
+            </div>
+        </div>
+		<hr>
+        <form method="POST">
+            <div class="form-group">
+                <label for="nom">Firstname</label>
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Enter your last name">
+            </div>
+            <div class="form-group">
+                <label for="prenom">Lastname</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Enter your first name">
+            </div>
+            <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" class="form-control" id="telephone" name ="telephone" placeholder="Enter your telephone number">
+            </div>
+               <div class="form-group">
+                <label for="address">Address</label>
+                <textarea class="form-control" name ="address"placeholder="Enter you address"></textarea>
+            </div>
+            <button type="submit" name="submit_button"class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% include 'footer/index.html.twig' %}
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

@@ -1,0 +1,41 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello OrderController!{% endblock %}
+
+{% block body %}
+	<!-- Header -->
+    {% include 'header/index.html.twig' %}
+    <!-- Body -->
+
+ <div class="container mt-5">
+        <h1 class="mb-4">Order details</h1>
+        <div class="card">
+            <div class="card-header">
+                <strong>Order reference :</strong> {{commande.reference}}
+            </div>
+            <div class="card-body">
+                <p><strong> Client Name :</strong>  {{commande.nom}} {{commande.prenom}}</p>
+                <p><strong>phone :</strong>  {{commande.phone}}</p>
+                <p><strong>shipping address :</strong>  {{commande.address}}</p>
+                <p><strong>Creation date:</strong>  {{commande.createdAt|date('Y-m-d')}}  At {{ commande.createdAt|date('H:i:s')  }}</p>
+                <p><strong>Order total:</strong> {{commande.total}} $</p>
+                <p><strong>Payement method :</strong> Payement par card</p>
+                <div class="text-right mt-3">
+            {% if commande.status == 1 %}
+                    <a href="{{path('order')}}" class="btn btn-secondary">Retour à la Liste</a>
+            {% else %}
+            <a href="{{path('process_payment',{id : commande.id})}}"  class="btn btn-success">Checkout</a>
+             <a href="{{path('order')}}" class="btn btn-secondary">Retour à la Liste</a>
+            {% endif %}               
+ </div>
+            </div>
+        </div>
+    </div>
+ 
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

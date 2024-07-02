@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FooterController!{% endblock %}
+
+{% block body %}
+	
+	<!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categories
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="{{path('books')}}" class="stext-107 cl7 hov-cl1 trans-04">
+								All books
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="{{path('bookcategory', {'categorie_id': 1})}}" class="stext-107 cl7 hov-cl1 trans-04">
+								Literature
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="{{path('bookcategory', {'categorie_id': 2})}}" class="stext-107 cl7 hov-cl1 trans-04">
+								Science
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="{{path('bookcategory', {'categorie_id': 3})}}" class="stext-107 cl7 hov-cl1 trans-04">
+							history
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Pages
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="{{path('main')}}" class="stext-107 cl7 hov-cl1 trans-04">
+								home 
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="{{path('about')}}" class="stext-107 cl7 hov-cl1 trans-04">
+								about
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="{{path('books')}}" class="stext-107 cl7 hov-cl1 trans-04">
+								books
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="{{path('order')}}" class="stext-107 cl7 hov-cl1 trans-04">
+								Orders
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						GET IN TOUCH
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Any questions? Let us know in store at Casablanca, Ain sbaa contact us  at  +212 673837837  
+					</p>
+
+					<div class="p-t-27">
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Register now
+					</h4>
+
+					
+						<div class="wrap-input1 w-full p-b-4">
+							<a href="{{path('app_login')}}" class="flex-c-m  text-dark stext-101 cl0 size-103 bg2 bor1 hov-btn2 p-lr-15 trans-04">
+							    login
+							</a>
+						</div>
+
+						<div class="p-t-18">
+							<a href = "{{path('register_client')}}"class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Register
+							</a>
+						</div>
+					
+				</div>
+			</div>
+		</div>
+	</footer>
+
+{% endblock %}

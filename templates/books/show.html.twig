@@ -1,0 +1,111 @@
+{# templates/product/detail.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# {% block title %}{{ product.name }}{% endblock %} #}
+{% block title %}product name{% endblock %}
+
+
+{% block body %}
+ {% include 'header/index.html.twig' %}
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Detail Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .star-rating {
+            display: inline-block;
+        }
+        .star {
+            font-size: 1.5rem;
+            color: #ccc;
+            cursor: default;
+        }
+        .star.selected {
+            color: gold;
+        }
+        .rating-value {
+            margin-top: 10px;
+        }
+        .book-detail {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+ <div class="container book-detail">
+     <div class="row">
+        <div class="col-md-5">
+            <div class="d-flex flex-column">
+            <img src="{{asset("images/"~ livre.imageUrl)}}" class="img-fluid p-2" alt="Book Image">
+            <hr>
+        </div>
+            </div>
+            <div class="col-md-7">
+                <h2>{{livre.nom}}</h2>
+                <p>by <strong>{{livre.auteur.nom}}</strong></p>
+
+                <div class="d-flex flex-row">  
+                <p class="p-2 mt-2 text-dark">{{livre.review.id}},0</p>
+                <div class="star-rating p-2 " data-rating="{{livre.review.id}}">
+                    
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                </div>
+                <h4 class="fs-30">$ {{livre.price}}</h4>
+                <hr>
+                <Strong>Information Livre :</Strong>
+        <div class="d-flex flex-row p-2 mr-20"> 
+                 <div class="p-2">
+                                 <p><Strong>Langue  :</Strong> {{livre.langue.nomLangue}}</p>
+                  </div>
+ 
+                <div class="p-2">
+                                 <p> <Strong>Page : </Strong> {{livre.pageNum}} </p>      
+                </div>
+                <div class="p-2">   
+                                <p> <Strong>date Publication :</Strong>  {{livre.annee|date('Y-m-d')}}</p>
+                </div>
+        </div>
+
+                <Strong>description :</Strong>
+                <p class="p-3"> {{livre.description}}</p>
+                <hr>
+                <a href="{{path('add',{id : livre.id})}}" class="btn btn-primary">Add to Cart</a>
+                <a href= "{{path('books')}}"class="btn btn-secondary"> <-  back </a>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/ce3d4c5710.js" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('.star-rating').each(function() {
+                var rating = $(this).data('rating');
+                var stars = $(this).find('.star');
+                stars.each(function(index) {
+                    if (index < rating) {
+                        $(this).addClass('selected');
+                    }
+                });
+                $(this).siblings('.rating-value').find('span').text(rating);
+            });
+        });
+    </script>
+</body>
+
+
+
+{% include 'footer/index.html.twig' %}
+</html>
+
+{% endblock %}
